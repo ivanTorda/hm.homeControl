@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+    xmlns:tm="http://www.muehlbauer.de/facelets">
+ 
+    <h:panelGroup styleClass="breadCrumbsAndRibbonBar" layout="block">
+        <div class="ui-grid">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-8">
+                    <tm:breadCrumbs />
+                </div>
+                <div class="ui-grid-col-4">
+                    <tm:ribbonBar />
+                </div>
+            </div>
+        </div>
+        
+    </h:panelGroup>
+ 
+</ui:composition>

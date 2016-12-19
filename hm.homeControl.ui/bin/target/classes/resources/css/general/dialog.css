@@ -1,0 +1,65 @@
+.ui-dialog {
+    position: fixed;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.ui-dialog-titlebar {
+    background-image: none !important;
+    color: #ffffff !important;
+    background-color: #00929d !important;
+    border-color: #00929d !important;
+}
+
+.ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon {
+    background-image:
+        url('#{request.contextPath}/javax.faces.resource/images/ui-icons_ffffff_256x240.png.xhtml?ln=primefaces-aristo')
+        !important;
+}
+
+.ui-dialog-footer {
+    font-size: 11px !important;
+    background-color: #e7e7e7 !important;
+    border-style: none !important;
+    padding: 4px 8px !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+    margin: 0px 5px !important;
+    float: right;
+}
+
+form .ui-message {
+    background-color: transparent !important;
+    color: #A94442 !important;
+    border-style: none !important;
+    margin-top: 0.3em !important;
+    font-size: 0.9em !important;
+    margin-left: 0em !important;
+    padding-left: 0em !important;
+}
+
+.ui-layout-unit {
+    border: none !important;
+}
+
+form .ui-message .ui-message-error-detail {
+    margin-left: 0em !important;
+}
+
+.ui-fieldset-toggleable .ui-fieldset-legend {
+    background-color: #E5E5E5 !important;
+    background-image: none;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    font-weight: normal !important;
+    border-width: 1px !important;
+    border-color: #E5E5E5 !important;
+    border-style: solid !important;
+}
+
+.ui-growl-item-container {
+    background: white !important;
+    color: #565656 !important;
+    text-shadow: none !important;
+}

@@ -1,0 +1,19 @@
+<html>
+<body style="font-size: 18px;">
+Dear user,
+<br/>
+<p>following table shows upcoming service events for given machines:</p>
+<br/>
+$serviceEventTable
+<br/>
+<i>
+--------------------------------------------------------------------------------------------
+<br/>
+<font size="2">
+This is an auto-generated email from tl.machineProductivity tool.
+<br/>
+Please do not reply.
+</font>
+</i>
+</body>
+</html>

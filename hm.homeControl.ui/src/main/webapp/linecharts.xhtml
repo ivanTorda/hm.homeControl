@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+    xmlns:tm="http://www.muehlbauer.de/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:param name="currentPage" value="weatherOverview" />
+    <ui:param name="currentTab" value="machinesMonitoringTab" />
+
+    <ui:define name="additionalCSS">
+        <h:outputStylesheet library="css/general" name="datatable.css" />
+        <h:outputStylesheet library="css" name="custom.css" />
+    </ui:define>
+    <ui:define name="additionalCSS">
+        <style>
+#chartdiv {
+    width: 100%;
+    height: 500px;
+    font-size: 11px;
+}
+</style>
+    </ui:define>
+    <ui:define name="additionalJS">
+        <!-- Resources -->
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+        <script src="https://www.amcharts.com/lib/3/amstock.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+            media="all" />
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+        <h:outputScript library="amcharts" name="dailyChart.js" />
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="formId">
+            <p:growl id="growl" showDetail="true" autoUpdate="true" />
+
+            <div class="ui-grid ui-grid-responsive">
+                <div class="content ui-grid-row" style="min-height: 800px;">
+                    <div class="ui-grid-col-2 tileStyle" style="min-width: 228px;">
+                        <p:panelGrid id="rawDataGrid" style="width:100%;margin-bottom:20px;">
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="4">
+                                        <p:outputLabel style="font-weight: bold; vertical-align:center;"
+                                            value="aktuálne hodnoty" />
+                                    </p:column>
+                                </p:row>
+                            </f:facet>
+                            <p:panelGrid columns="2" style="width: 80%;border: none;max-width: 450px;">
+                                <h:outputText value="dátum:" />
+                                <h:outputText value="#{linechartController.actualData.date}" />
+
+                                <h:outputText value="svietivosť:" />
+                                <h:outputText value="#{linechartController.actualData.luminous} lux" />
+
+                                <h:outputLabel value="vlhosť pôdy:" />
+                                <h:outputText value="#{linechartController.actualData.humidity1} %" />
+
+                                <h:outputLabel value="vlhosť vzduchu:" />
+                                <h:outputText value="#{linechartController.actualData.humidity2} %" />
+
+                                <h:outputLabel value="tlak vzduchu:" />
+                                <h:outputText value="#{linechartController.actualData.preassure} hPa" />
+
+                                <h:outputLabel value="teplota pôdy:" />
+                                <h:outputText value="#{linechartController.actualData.temperature1} °C" />
+
+                                <h:outputLabel value="teplota okolia:" />
+                                <h:outputText value="#{linechartController.actualData.temperature2}  °C" />
+                            </p:panelGrid>
+                        </p:panelGrid>
+                        <br />
+                        <p:commandButton value="meraj" update="formId"
+                            actionListener="#{linechartController.measureData()}" onclick="PF('processingDlg').show();"
+                            oncomplete="PF('processingDlg').hide();" />
+
+                    </div>
+                    <div class="ui-grid-col-8 tileStyle" style="border-left: 4px solid #E7E7E7">
+
+                        <h:panelGroup id="allCharts">
+                            <p:panelGrid columns="2" style="width: 50%;border: none;max-width: 450px;">
+                                <h:outputLabel style="width:auto;" value="vyber dátum:" />
+                                <p:calendar id="startDateLabel" value="#{linechartController.selectedDate}"
+                                    locale="sk_EU" pattern="dd/MM/yyyy" mask="true" required="true"
+                                    inputStyle="width: 50px">
+                                    <p:ajax event="dateSelect" listener="#{linechartController.refreshData()}"
+                                        update="formId" onstart="PF('processingDlg').show();" oncomplete="PF('processingDlg').hide();"/>
+                                </p:calendar>
+                            </p:panelGrid>
+                            <br />
+                            <div id="chartdiv"></div>
+                            <p:inputText id="dataStr" value="#{linechartController.dataStr}" style="display: none" />
+                        </h:panelGroup>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+        <script type="text/javascript">  
+           PrimeFaces.locales ['sk_EU'] = {
+           closeText: 'Close',
+           prevText: 'Previous',
+           nextText: 'Next',
+           monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+           monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
+           dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+           dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Tue', 'Fri', 'Sat'],
+           dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Tu', 'Fr', 'Sa'],
+           weekHeader: 'Week',
+           firstDay: 1,
+           isRTL: false,
+           showMonthAfterYear: false,
+           yearSuffix:'',
+           timeOnlyTitle: 'Only Time',
+           timeText: 'Time',
+           hourText: 'Time',
+           minuteText: 'Minute',
+           secondText: 'Second',
+           currentText: 'Current Date',
+           ampm: false,
+           month: 'Month',
+           week: 'week',
+           day: 'Day',
+           allDayText: 'All Day'};
+       </script>
+    </ui:define>
+</ui:composition>
+</html>

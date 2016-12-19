@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+    xmlns:tm="http://www.muehlbauer.de/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:param name="currentPage" value="weatherOverview" />
+    <ui:param name="currentTab" value="machinesMonitoringTab" />
+
+    <ui:define name="additionalCSS">
+        <h:outputStylesheet library="css/general" name="datatable.css" />
+        <h:outputStylesheet library="css" name="custom.css" />
+    </ui:define>
+     <ui:define name="additionalCSS">
+        <style>
+            #chartdiv {
+                width: 100%;
+                height: 500px;
+                font-size: 11px;
+            }
+        </style>
+    </ui:define>
+    <ui:define name="additionalJS">
+
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+        <h:outputScript library="amcharts" name="bars.js" />
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="formId">
+            <p:growl id="growl" showDetail="true" autoUpdate="true" />
+
+            <div class="ui-grid ui-grid-responsive">
+                <div class="content ui-grid-row" style="min-height: 500px;">
+                    <div class="ui-grid-col-2 tileStyle" style="min-width: 228px;">
+                        <p:panelGrid id="rawDataGrid"
+                            style="width:100%;margin-bottom:20px;">
+                        </p:panelGrid>
+                    </div>
+                    <div class="ui-grid-col-8 tileStyle" style="border-left: 4px solid #E7E7E7">
+                        <h:panelGroup id="allCharts">
+                            <div id="chartdiv"></div>
+                            <p:inputText id="dataStr" value="#{chartController.dataStr}" style="display: none" />
+                        </h:panelGroup>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

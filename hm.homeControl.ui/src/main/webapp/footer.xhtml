@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:panelGroup layout="block" styleClass="footer">
+		<h:form id="localeForm">
+			<ul>
+				<li>MeteoSoft</li>
+				<li>v 1.0</li>
+
+				<li>client time:</li>
+				<li><p:clock pattern="HH:mm:ss dd.MM.yyyy" /></li>
+				<li>server time:</li>
+				<li><p:clock pattern="HH:mm:ss dd.MM.yyyy" mode="server" /></li>
+
+			</ul>
+		</h:form>
+	</h:panelGroup>
+
+
+</ui:composition>

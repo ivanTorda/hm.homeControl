@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:tm="http://www.muehlbauer.de/facelets">
+
+    <h:panelGroup layout="block" styleClass="breadCrumbsBox">
+        <ui:repeat var="item" value="#{breadCrumbStack.clickableItems}">
+            <span class="fa fa-chevron-right breadCrumb-separator" />
+            <p:commandLink value="#{item.label}" action="#{item.executeAction()}" immediate="true"
+            onclick="PF('processingDlg').show();"
+                styleClass="button breadCrumb" ajax="false"/>
+        </ui:repeat>
+        <span class="fa fa-chevron-right breadCrumb-separator" />
+        <p:outputLabel value="#{breadCrumbStack.currentLocationItem.label}"
+            styleClass="breadCrumb-currentLocation"
+            rendered="#{breadCrumbStack.currentLocationItem != null}" />
+
+    </h:panelGroup>
+</ui:composition>
+

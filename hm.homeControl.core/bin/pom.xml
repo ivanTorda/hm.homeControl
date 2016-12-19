@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>sk.localhost.hm</groupId>
+        <artifactId>hm.homeControl</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../hm.homeControl</relativePath>
+    </parent>
+
+    <artifactId>hm.homeControl.core</artifactId>
+    <name>hm.homeControl.core</name>
+    <description>This project includes general components</description>
+    <packaging>jar</packaging>
+</project>

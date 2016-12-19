@@ -1,0 +1,116 @@
+.ui-datatable thead th {
+    background: #e7e7e7 !important;
+    border: 1px solid #d8d8d8 !important;
+    font-size: 13px !important;
+}
+ 
+.ui-datatable tbody td {
+    border: 1px solid #d8d8d8 !important;
+    font-size: 11px !important;
+}
+ 
+.ui-datatable tbody td, .ui-datatable tfoot td {
+    text-align: left !important;
+    border: 1px solid #d8d8d8 !important;
+}
+ 
+.ui-datatable .ui-widget-header {
+    text-shadow: none !important;
+    border: 1px solid #d8d8d8 !important;
+}
+ 
+.ui-datatable .ui-datatable-header {
+    background-color: #e7e7e7 !important;
+    background-image: none !important;
+    border-color: #d8d8d8 !important;
+}
+ 
+.ui-datatable .ui-datatable-footer {
+    background-color: #e7e7e7 !important;
+    background-image: none !important;
+}
+ 
+.ui-datatable.ui-datatable-with-ext-header .ui-datatable-header {
+    border-color: #d8d8d8 !important;
+}
+ 
+ 
+.ui-datatable .ui-state-highlight td {
+    background-color: #e7e7e7 !important;
+}
+ 
+.ui-datatable tr.ui-state-highlight {
+    text-shadow: none !important;
+}
+ 
+.ui-datatable .ui-sortable-column {
+    white-space: nowrap !important;
+}
+ 
+.ui-datatable .ui-column-filter {
+	background-color: #FFFFFF !important;
+    border: none !important;
+    width: 90% !important;
+}
+ 
+.ui-datatable .ui-state-default {
+    background-image: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.ui-paginator-rpp-options{
+	border: 1px solid #565656;
+}
+
+.ui-datatable-scrollable-theadclone{
+	display: none !important;	
+}
+ 
+/* 
+.ui-datatable .ui-paginator {
+    text-align: right !important;
+    background-color: white !important;
+    background-image: none !important;
+}
+ 
+.ui-datatable .ui-paginator-bottom {
+    border-top-width: 0px !important;
+}
+ 
+ 
+ 
+ 
+ 
+.ui-paginator .ui-state-default {
+    border-color: #DDD !important;
+    background-color: white !important;
+    font-weight: normal !important;
+    font-size: 0.8em !important;
+}
+ 
+.ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-pages, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last,
+    .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev, .ui-paginator .ui-paginator-current {
+    padding: 4px 8px !important;
+    font-size: 0.9em !important;
+}
+ 
+.ui-paginator .ui-icon {
+    display: block !important;
+    text-indent: 99999px !important;
+}
+ 
+.ui-datatable a, .ui-datatable a:visited {
+    color: #0D638F !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+}
+ 
+.ui-datatable a:hover {
+    text-decoration: underline !important;
+}
+ 
+.ui-paginator .ui-paginator-next .ui-icon, .ui-paginator .ui-paginator-prev .ui-icon, .ui-paginator .ui-paginator-first .ui-icon,
+    .ui-paginator .ui-paginator-last .ui-icon {
+    overflow: hidden !important;
+}*/

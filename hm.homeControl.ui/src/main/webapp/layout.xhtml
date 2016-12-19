@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<!-- IE9 automatically sets the page to compatibility mode. We don't want this behavior. -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<ui:insert name="metadata" />
+	<ui:insert name="additionalHeadContent" />
+
+	<title>#{main.title}</title>
+
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputStylesheet library="css" name="theme.css" />
+	<h:outputStylesheet library="css" name="custom.css" />
+	<h:outputStylesheet library="css" name="timeline.css" />
+
+
+	<ui:insert name="additionalJS" />
+	<ui:insert name="additionalCSS" />
+
+</h:head>
+<h:body id="page">
+	<f:view locale="#{sessionManager.locale}"/> 
+	<p:growl id="growl" showDetail="false" />
+	<!--f:view beforePhase="#{loginHandler.checkLoggedIn}"-->
+
+	<h:panelGroup layout="block" id="wrapper">
+		<ui:include src="/header.xhtml" />
+		<ui:include src="/WEB-INF/tags/sessionTimeOut.xhtml" />
+		<ui:insert name="content" />
+		<ui:include src="/footer.xhtml" />
+	</h:panelGroup>
+
+	   <p:dialog id="processingDialogId" widgetVar="processingDlg" header="Processing request" style="max-width: 450px;">
+           <h:panelGrid style="margin-left: auto;margin-right: auto;text-align: center;">
+               <p:graphicImage name="ajax-loader.gif" library="images/icons"/>
+               <h:outputText value="Processing..." />
+           </h:panelGrid>
+       </p:dialog> 
+
+       <h:form id="pollForm">
+			<p:poll interval="#{sessionRenewHandler.pollInterval}" onstart="window.location.reload();" />
+	   </h:form>
+	<!--/f:view-->
+</h:body>
+</html>

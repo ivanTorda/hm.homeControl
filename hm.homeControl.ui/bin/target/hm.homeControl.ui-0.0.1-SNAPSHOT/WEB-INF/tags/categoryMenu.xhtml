@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:panelGroup styleClass="ribbonBarBox">
+        <p:commandButton id="changeCategoryButton" icon="fa fa-sitemap" immediate="#{currentPage=='machineManagement'}" onclick="PF('categories').show();"/>
+        <p:tooltip id="toolTipCategoryButton" for="changeCategoryButton" value=" #{main['selectedCategory']} : #{sessionManager.selectedRegionName}" />
+    </h:panelGroup>
+    
+    
+    <p:dialog header="#{main['header.dialog.selectCategory']}" id="categoriesDialog" closeOnEscape="true" draggable="true"  minHeight="300" minWidth="350" resizable="false" widgetVar="categories" >
+        <p:tree value="#{applicationManager.root}" var="node"
+            onNodeClick="PF('categories').hide();"
+            selectionMode="single" dynamic="true">
+            
+            <p:ajax event="select"
+                listener="#{sessionManager.handleTreeNodeSelection}"
+                onstart="PF('processingDlg').show();"/>
+            <p:treeNode expandedIcon="ui-icon-folder-open"
+                collapsedIcon="ui-icon-folder-collapsed">
+                <h:outputText converter="#{categoryConverter}"
+                    value="#{node}" />
+            </p:treeNode>
+        </p:tree>
+    </p:dialog>
+ 
+</ui:composition>

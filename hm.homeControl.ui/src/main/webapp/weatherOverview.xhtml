@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+    xmlns:tm="http://www.muehlbauer.de/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:param name="currentPage" value="weatherOverview" />
+    <ui:param name="currentTab" value="machinesMonitoringTab" />
+
+    <ui:define name="additionalCSS">
+        <h:outputStylesheet library="css/general" name="datatable.css" />
+        <h:outputStylesheet library="css" name="custom.css" />
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="formId">
+            <p:growl id="growl" showDetail="true" autoUpdate="true" />
+
+            <div class="ui-grid ui-grid-responsive">
+                <div class="content ui-grid-row" style="min-height: 500px;">
+                    <div class="ui-grid-col-2 tileStyle" style="min-width: 228px;">
+                        <p:panelGrid id="rawDataGrid"
+                            style="width:100%;margin-bottom:20px;">
+                            <f:facet name="header">
+                                <p:row>
+                                   <p:column colspan="4">
+                                           <p:outputLabel style="font-weight: bold; vertical-align:center;" value="Actual data"  />
+                                          
+                                   </p:column>
+                                </p:row>
+                            </f:facet>
+                            <p:row>
+                                <p:column>
+                                    <h:outputText value="luminous:" /><br />
+                                    <h:outputLabel value="humidity:" /><br />
+                                    <h:outputLabel value="preassure:" /><br />
+                                    <h:outputLabel value="temperature:" /><br />
+                                </p:column>
+                                <p:column>
+                                    <h:outputText value="#{weatherOverview.actualData.luminous}" /><br />
+                                    <h:outputText value="#{weatherOverview.actualData.humidity}" /><br />
+                                    <h:outputText value="#{weatherOverview.actualData.preassure}" /><br />
+                                    <h:outputText value="#{weatherOverview.actualData.temperature}" /><br />
+                                </p:column>
+                            </p:row>
+                        </p:panelGrid>
+                    </div>
+                    <div class="ui-grid-col-8 tileStyle" style="border-left: 4px solid #E7E7E7">
+                        <h:panelGroup id="allCharts">
+                            <div class="ui-grid-col-4" style="width: 730px;">
+                                <p:panelGrid id="chartsGridId">
+                                    <p:growl id="msg" />
+                                    <p:chart type="line" model="#{weatherOverview.lineModel1}"
+                                        style="width:1000px; height:500px;" />
+                                </p:panelGrid>
+                            </div>
+                        </h:panelGroup>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

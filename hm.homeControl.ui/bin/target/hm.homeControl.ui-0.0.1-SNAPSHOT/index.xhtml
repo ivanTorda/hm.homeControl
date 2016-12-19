@@ -1,0 +1,30 @@
+<ui:composition template="layout.xhtml"
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html">
+
+   <h:doctype rootElement="html"
+       public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+       system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+
+   <ui:param name="currentPage" value="index" />
+
+   <ui:define name="title">
+        #{main.title}
+    </ui:define>
+
+   <ui:define name="additionalHeadContent">
+       <meta http-equiv="refresh" content="300" />
+       <meta http-equiv="refresh" content="0; url=/tl.machineProductivity/machinesStatusBasic.xhtml" />
+       <!-- Prevent timeout on login page -->
+   </ui:define>
+
+   <ui:define name="content" >
+       
+       <h:panelGroup  layout="block" styleClass="content">
+           <h:panelGroup  layout="block" styleClass="main">
+           </h:panelGroup>
+       </h:panelGroup>
+   </ui:define>
+</ui:composition>

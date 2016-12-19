@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <Property name="log-path">./tl.machineProductivity</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %C{1}: %msg%n" />
+        </Console>
+        <RollingFile name="MP_LOG" fileName="${log-path}/mp_main.log"
+            filePattern="${log-path}/main/mp_main-%d{yyyy-MM-dd}-%i.log"
+            immediateFlush="true" append="false" ignoreExceptions="false">
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss.SSS}||[%t]||%-5level||%C{1}||%msg%n">
+            </PatternLayout>
+            <Policies>
+            	<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="5 MB" />
+            </Policies>
+      		<DefaultRolloverStrategy fileIndex="min" max="30"/>
+        </RollingFile>
+        <RollingFile name="DATA_LOADING_LOGGER" fileName="${log-path}/mp_data_loading.log"
+            filePattern="${log-path}/data_loading/mp_data_loading-%d{yyyy-MM-dd}-%i.log"
+            immediateFlush="true" append="false" ignoreExceptions="false">
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss.SSS}||[%t]||%-5level||%C{1}||%msg%n">
+            </PatternLayout>
+            <Policies>
+            	<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="5 MB" />
+            </Policies>
+      		<DefaultRolloverStrategy fileIndex="min" max="30"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console" />
+        </Root>
+	    <Logger name="DATA_LOADING_LOGGER" level="info" additivity="false">
+	      <AppenderRef ref="DATA_LOADING_LOGGER"/>
+	    </Logger>
+	    <Logger name="MAIN_LOGGER" level="info" additivity="false">
+            <AppenderRef ref="MP_LOG" />
+	    </Logger>
+    </Loggers>
+</Configuration>

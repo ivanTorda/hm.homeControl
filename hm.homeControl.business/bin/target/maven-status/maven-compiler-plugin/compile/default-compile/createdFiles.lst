@@ -1,0 +1,14 @@
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\GetJobsForPeriodResponse.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\JobWS.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\GetCurrentVersionOfProgramResponse.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\JobWebServiceExceptionWS_Exception.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\GetJobsForPeriod.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\GetJobsForMachineIdResponse.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\GetJobsForMachineId.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\package-info.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\JobWebServiceExceptionWS.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\GetCurrentVersionOfProgram.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\JobWebService.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\JobDataService.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\JobStateWS.class
+de\muehlbauer\mes\tl\ncprogrammanagement\ui\webservice\ObjectFactory.class

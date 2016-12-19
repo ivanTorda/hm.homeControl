@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:panelGroup styleClass="ribbonBarBox">
+ 
+         <p:column>
+            <p:commandButton id="ribbonBarMenuButton" type="button"
+                icon="fa fa-list" />
+            <p:menu overlay="true" trigger="ribbonBarMenuButton" my="right top"
+                at="right bottom">
+                <p:submenu styleClass="menuLabel"
+                    label="#{main['header.tab.overview']}">
+                    <p:menuitem value="#{main['machineStatus.basicView']}"
+                        onclick="PF('processingDlg').show();" icon="fa fa-pie-chart"
+                        outcome="machinesStatusBasic.xhtml" />
+                    <p:menuitem value="#{main['machineStatus.detailedView']}"
+                        onclick="PF('processingDlg').show();" icon="fa fa-th-large"
+                        outcome="machinesStatusDetailed.xhtml" />
+                </p:submenu>
+                <p:submenu label="#{main['header.tab.timeline']}">
+                    <p:menuitem value="#{main['header.tab.timeline']}"
+                        onclick="PF('processingDlg').show();" icon="fa fa-tasks"
+                        outcome="timeline.xhtml" />
+                </p:submenu>
+                <p:submenu label="#{main['menu.reports']}">
+                    <p:menuitem value="#{main['header.tab.statistics']}"
+                        disabled="false" url="statistics.xhtml"
+                        onclick="PF('processingDlg').show();" icon="fa fa-bar-chart-o" />
+                    <p:menuitem value="#{main['menu.submenu.shift']}" disabled="false"
+                        url="shiftReport.xhtml" onclick="PF('processingDlg').show();"
+                        icon="fa fa-area-chart" />
+                    <p:menuitem value="#{main['report.uptime']}"
+                        url="uptimeReport.xhtml" onclick="PF('processingDlg').show();"
+                        icon="fa fa-clock-o" rendered="true"/>
+                    <p:menuitem value="#{main['header.tab.machineRawDataManagement']}"
+                        url="machineRawDataManagement.xhtml" onclick="PF('processingDlg').show();"
+                        icon="fa fa-area-chart" rendered="true"/>   
+                </p:submenu>
+                <p:submenu icon="fa fa-cogs" label="#{main['header.tab.settings']}">
+                    <p:menuitem value="#{main['header.tab.machineManagement']}"
+                        onclick="PF('processingDlg').show();" icon="fa fa-cog"
+                        outcome="machineManagement.xhtml" />
+                    <p:menuitem value="#{main['header.tab.categoryManagement']}"
+                        onclick="PF('processingDlg').show();" icon="fa fa-cog"
+                        outcome="categoryManagement.xhtml" />
+                </p:submenu>
+            </p:menu>
+ 
+        </p:column>
+           
+    </h:panelGroup>
+ 
+</ui:composition>

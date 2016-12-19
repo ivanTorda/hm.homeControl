@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+	<!-- <navigation-rule> <from-view-id>/showToolComponent.xhtml</from-view-id> 
+		<navigation-case> <from-outcome>showAllToolComponents</from-outcome> <to-view-id>/showAllToolComponents.xhtml</to-view-id> 
+		</navigation-case> </navigation-rule> <navigation-rule> <from-view-id>/showAllToolComponents.xhtml</from-view-id> 
+		<navigation-case> <from-outcome>showToolComponent</from-outcome> <to-view-id>/showToolComponent.xhtml</to-view-id> 
+		</navigation-case> </navigation-rule> -->
+	<faces-config-extension>
+		<facelets-processing>
+			<file-extension>.xhtml</file-extension>
+			<process-as>xhtml</process-as>
+		</facelets-processing>
+	</faces-config-extension>
+	<application>
+		<locale-config>
+			<default-locale>de</default-locale>
+			<!--Slovak language -->
+			<supported-locale>sk</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>de.muehlbauer.mes.tl.machineproductivity.ui.resources.main</base-name>
+			<var>main</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>de.muehlbauer.mes.tl.machineproductivity.ui.resources.messages</base-name>
+			<var>messages</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>de.muehlbauer.mes.tl.machineproductivity.ui.resources.rights</base-name>
+			<var>rights</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>de.muehlbauer.mes.tl.machineproductivity.ui.resources.buildInfo</base-name>
+			<var>buildInfo</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>de.muehlbauer.mes.tl.machineproductivity.ui.resources.toolComponent</base-name>
+			<var>toolComponent</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>de.muehlbauer.mes.tl.machineproductivity.ui.resources.tool</base-name>
+			<var>tool</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>de.muehlbauer.mes.tl.machineproductivity.ui.resources.pageRefresh</base-name>
+			<var>pageRefresh</var>
+		</resource-bundle>
+        <resource-bundle>
+            <base-name>de.muehlbauer.mes.tl.machineproductivity.ui.resources.serviceManagement</base-name>
+            <var>serviceManagement</var>
+        </resource-bundle>
+	</application>
+</faces-config>

@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:panelGroup layout="block" styleClass="footer">
+		<h:form id="localeForm">
+			<ul>
+				<li>#{main.company}</li>
+				<li>#{main.footer_version} #{buildInfo.version}</li>
+
+				<li>#{main['footer.client']}</li>
+				<li><p:clock pattern="HH:mm:ss dd.MM.yyyy" /></li>
+				<li>#{main['footer.server']}</li>
+				<li><p:clock pattern="HH:mm:ss dd.MM.yyyy" mode="server" /></li>
+				<li>#{main['footer.language']}</li>
+				
+				
+				<li><p:selectOneMenu id="locale" style="vertical-align:middle;" value="#{sessionManager.selectedLang}">
+						<f:selectItem itemLabel="EN" itemValue="EN" />
+						<f:selectItem itemLabel="SK" itemValue="SK" />
+						<f:selectItem itemLabel="DE" itemValue="DE" />
+						<p:ajax listener="#{sessionManager.countryLocaleCodeChanged}" />
+					</p:selectOneMenu></li>
+
+			</ul>
+		</h:form>
+	</h:panelGroup>
+
+
+</ui:composition>

@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:panelGroup styleClass="ribbonBarBox" rendered="#{currentPage=='createCategory'}">
+        <p:commandButton id="createCategory-saveButton" icon="fa fa-save" 
+          action="#{crudCategoriesBean.addCategory()}" onclick="PF('processingDlg').show();" oncomplete="PF('processingDlg').hide();" update="formId"  />
+        <p:commandButton id="createCategory-cancelButton" icon="fa fa-ban" 
+          action="#{crudCategoriesBean.cancelCategory()}" update="formId" process="@this"/>S
+        <p:tooltip id="createCategory-saveButton-toolTip" for="createCategory-saveButton">#{main['crud.create']}</p:tooltip>
+          <p:tooltip id="createCategory-cancelButton-tooltip" for="createCategory-cancelButton" value="#{main['crud.cancel']}"/>
+ 
+    </h:panelGroup>
+</ui:composition>

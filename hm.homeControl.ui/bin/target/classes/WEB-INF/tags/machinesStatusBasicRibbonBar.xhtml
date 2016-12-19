@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:panelGroup styleClass="ribbonBarBox"
+        rendered="#{currentPage=='machinesStatusBasic'}">
+        <p:commandButton id="refreshButton1" icon="fa fa-refresh" actionListener="#{currentMachineStatusBean.refreshData}" update=":formId"
+                            onstart="PF('processingDlg').show();" oncomplete="PF('processingDlg').hide();"/>
+         <p:commandButton id="detailedRibonBarButton" icon="fa fa-th-large" action="/machinesStatusDetailed.xhtml?faces-redirect=true" onclick="PF('processingDlg').show();"/>
+        
+           <p:tooltip for="detailedRibonBarButton" >#{main['machineStatus.detailedView']}</p:tooltip>
+       <p:tooltip for="refreshButton1" value="#{main['reload']}" />
+    </h:panelGroup>
+</ui:composition>

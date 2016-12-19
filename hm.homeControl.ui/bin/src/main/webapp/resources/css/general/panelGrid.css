@@ -1,0 +1,38 @@
+.ui-panelgrid {
+    border-left: 1px dashed #e7e7e7;
+    border-right: 1px dashed #e7e7e7;
+}
+
+.ui-panelgrid {
+    width: 100%;
+}
+
+.ui-panelgrid-header .ui-widget-header{
+	border: 1px solid #D8D8D8;
+	line-height: 23px;
+}
+
+.ui-panelgrid-header .ui-outputlabel{
+	font-weight: bold;
+}
+
+.ui-panelgrid-cell {
+    border: none !important;
+}
+
+.ui-panelgrid-cell .ui-state-default {
+    width: 100%;
+    border: 1px solid #565656 !important;
+}
+
+.ui-panelgrid-cell .ui-selectonemenu-trigger {
+    border: none !important;
+}
+
+.ui-spinner .ui-icon-triangle-1-n {
+  margin-top: -9px;
+}
+
+.ui-spinner {
+   width:50px;
+}

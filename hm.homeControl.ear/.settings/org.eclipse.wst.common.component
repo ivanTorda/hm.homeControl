@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="hm.homeControl.ear-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="hm.homeControl.ui-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/hm.homeControl.ui/hm.homeControl.ui">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hm.homeControl.business-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/hm.homeControl.business/hm.homeControl.business">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hm.homeControl.persistence-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/hm.homeControl.persistence/hm.homeControl.persistence">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hm.homeControl.core-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/hm.homeControl.core/hm.homeControl.core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jaxb-api-2.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="stax-api-1.0-2.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="activation-1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/activation/activation/1.1/activation-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jna-3.3.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/net/java/dev/jna/jna/3.3.0/jna-3.3.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jna-3.3.0-platform.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/net/java/dev/jna/jna/3.3.0/jna-3.3.0-platform.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="velocity-1.7.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/velocity/velocity/1.7/velocity-1.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-3.2.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-lang-2.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-lang/commons-lang/2.4/commons-lang-2.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-api-2.3.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/logging/log4j/log4j-api/2.3/log4j-api-2.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-core-2.3.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/logging/log4j/log4j-core/2.3/log4j-core-2.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

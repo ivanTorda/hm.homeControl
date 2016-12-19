@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>sk.localhost.hm</groupId>
+        <artifactId>hm.homeControl</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../hm.homeControl</relativePath>
+    </parent>
+
+    <artifactId>hm.homeControl.ear</artifactId>
+    <name>homeControl.ear</name>
+    <packaging>ear</packaging>
+    <description>homeControl.ear</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <version>7</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <webModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>hm.homeControl.ui</artifactId>
+                            <contextRoot>hm.homeControl</contextRoot>
+                        </webModule>
+                        <ejbModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>hm.homeControl.business</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>hm.homeControl.persistence</artifactId>
+                        </ejbModule>
+                        <jarModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>hm.homeControl.core</artifactId>
+                        </jarModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>sk.localhost.hm</groupId>
+            <artifactId>hm.homeControl.core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>sk.localhost.hm</groupId>
+            <artifactId>hm.homeControl.business</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>sk.localhost.hm</groupId>
+            <artifactId>hm.homeControl.persistence</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>sk.localhost.hm</groupId>
+            <artifactId>hm.homeControl.ui</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>sk.localhost.hm</groupId>
+        <artifactId>hm.homeControl</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../hm.homeControl</relativePath>
+    </parent>
+
+    <artifactId>hm.homeControl.business</artifactId>
+    <name>homeControl.business</name>
+    <packaging>ejb</packaging>
+    <description>homeControl.business</description>
+
+     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+       <sourceDirectory>src/main/java</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-codegen-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <wsdlOptions>
+                                <wsdlOption>
+                                    <wsdl>${moduleServiceWsdlLocation}</wsdl>
+                                    <extraargs>
+                                        <extraarg>-verbose</extraarg>
+                                    </extraargs>
+                                </wsdlOption>
+                            </wsdlOptions>
+                        </configuration>
+                        <goals>
+                            <goal>wsdl2java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-codegen-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <configuration>
+                    <ejbVersion>3.0</ejbVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+	<properties>
+        <jna.version>3.3.0</jna.version>
+        <moduleServiceWsdlLocation>http://192.168.0.201:8080/hm.moduleConnectivity/ModuleControlService?wsdl</moduleServiceWsdlLocation>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>sk.localhost.hm</groupId>
+            <artifactId>hm.homeControl.persistence</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>ejb</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>sk.localhost.hm</groupId>
+            <artifactId>hm.homeControl.core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+        	<groupId>net.java.dev.jna</groupId>
+        	<artifactId>jna</artifactId>
+        	<version>${jna.version}</version>
+		</dependency>
+	    <dependency>
+	        <groupId>net.java.dev.jna</groupId>
+	        <artifactId>jna</artifactId>
+	        <version>${jna.version}</version>
+	        <classifier>platform</classifier>
+	    </dependency>
+        <dependency>
+          <groupId>org.apache.velocity</groupId>
+          <artifactId>velocity</artifactId>
+          <version>1.7</version>
+      </dependency>
+    </dependencies>
+
+</project>

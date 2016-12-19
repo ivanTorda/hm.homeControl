@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>sk.localhost.hm</groupId>
+    <artifactId>hm.homeControl</artifactId>
+    <name>homeControl</name>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <description>homeControl</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <ejbVersion>3.2</ejbVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.16</version>
+                <configuration>
+                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.2</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+	<modules>
+        <module>../hm.homeControl.core</module>
+        <module>../hm.homeControl.persistence</module>
+        <module>../hm.homeControl.business</module>
+        <module>../hm.homeControl.ui</module>
+        <module>../hm.homeControl.ear</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <!-- Profile for production environment -->
+            <id>server</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>../hm.homeControl.core</module>
+                <module>../hm.homeControl.business</module>
+                <module>../hm.homeControl.ear</module>
+                <module>../hm.homeControl.persistence</module>
+                <module>../hm.homeControl.ui</module>
+            </modules>
+            <properties>
+                <!-- <tm.context.root>/tm_test</tm.context.root> -->
+            </properties>
+        </profile>
+        <profile>
+            <!-- Profile for test environment -->
+            <id>testserver</id>
+            <modules>
+                <module>../hm.homeControl.core</module>
+                <module>../hm.homeControl.business</module>
+                <module>../hm.homeControl.ear</module>
+                <module>../hm.homeControl.persistence</module>
+                <module>../hm.homeControl.ui</module>
+            </modules>
+            <properties>
+                <!-- <tm.context.root>/tm_test</tm.context.root> -->
+            </properties>
+        </profile>
+        <profile>
+            <!-- Profile for test environment -->
+            <id>testserver_deploy</id>
+            <modules>
+                <module>../hm.homeControl.core</module>
+                <module>../hm.homeControl.business</module>
+                <module>../hm.homeControl.ear</module>
+                <module>../hm.homeControl.persistence</module>
+                <module>../hm.homeControl.ui</module>
+            </modules>
+            <properties>
+                <!-- <tm.context.root>/tm_test</tm.context.root> -->
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>sk.localhost.hm</groupId>
+   <artifactId>hm.homeControl.database</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+  <name>homeControl Database Migration</name>
+  
+  <build>
+      <plugins>
+        <plugin>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>3.0</version>
+            <configuration>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://localhost:1433;DatabaseName=HOME_MANAGEMENT</url>
+                <user>sa</user>
+                <password>Roding2014</password>
+            </configuration>
+          <dependencies>
+              <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>sqljdbc4</artifactId>
+                <version>4.0</version>
+              </dependency>
+          </dependencies>
+        </plugin>
+      </plugins>
+  </build>
+  
+</project>

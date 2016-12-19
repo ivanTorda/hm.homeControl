@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:panelGroup styleClass="ribbonBarBox" rendered="#{currentPage=='editCategory'}">
+        <p:commandButton id="editCategory-editButton" icon="fa fa-edit" 
+          action="#{crudCategoriesBean.editCategory()}" />
+        <p:commandButton id="editCategory-cancelButton" icon="fa fa-ban" 
+          action="#{crudCategoriesBean.cancelCategory()}" process="@this"/>
+        <p:tooltip id="editCategory-editButton-toolTip" for="editCategory-editButton">#{main['crud.edit']}</p:tooltip>
+  		<p:tooltip id="editCategory-cancelButton-tooltip" for="editCategory-cancelButton" value="#{main['crud.cancel']}"/>
+
+    </h:panelGroup>
+</ui:composition>

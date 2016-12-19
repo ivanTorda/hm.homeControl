@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:form prependId="false">
+        <p:idleMonitor
+            timeout="#{session.maxInactiveInterval * 1000 - 125000}"
+            onidle="startIdleMonitor()"
+            onactive="PF('timeoutDialog').hide()"
+             />
+
+        <p:dialog id="timeoutSession" header="#{main['ui.sessionExpires']}"
+            widgetVar="timeoutDialog" showEffect="fade"
+            hideEffect="fade" modal="true" width="400" height="110"
+            closable="false" draggable="false" resizable="false"
+            appendToBody="true" onHide="stopCount()" onShow="doTimer()">
+            <br />
+            <p>
+                <span class="ui-icon ui-icon-alert"
+                    style="float: left; margin: 8px 8px 0;" />
+                <p:panel>
+                    <span id="dialog-countdown"
+                        style="font-weight: bold"></span>
+                </p:panel>
+            </p>
+            <br />
+            <p style="font-weight: bold;">Move Cursor</p>
+        </p:dialog>
+        <p:remoteCommand name="keepAlive"
+            actionListener="#{sessionRenewHandler.renew()}" />
+    </h:form>
+
+<h:outputScript name="js/tools/idlemonitor-countdown.js" />
+
+</ui:composition>
